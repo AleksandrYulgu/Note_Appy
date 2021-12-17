@@ -42,7 +42,7 @@ responses:
 """
 
 
-@doc(tags=['Users'])
+@doc(tags=['Users'])#
 class UserResource(MethodResource):
     @doc(summary="Get user by id", description="Returns single user")
     @doc(responses={404: {"description": 'User not found'}})
@@ -55,7 +55,7 @@ class UserResource(MethodResource):
 
     @auth.login_required(role="admin")
     @doc(summary="Edit user by id")
-    @use_kwargs({"username": fields.Str(), "role": fields.Str()})
+    @use_kwargs({"username": fields.Str(), "role": fields.Str()}) #все равно что и схема из папки схем
     @marshal_with(UserSchema)
     @doc(responses={401: {"description": "Not authorization"}})
     @doc(responses={404: {"description": 'User not found'}})
